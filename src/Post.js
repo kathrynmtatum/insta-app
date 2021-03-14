@@ -1,9 +1,9 @@
 import React from 'react';
 
 import css from './Post.module.css';
-import publicUrl from 'utils/publicUrl';
+import publicUrl from './publicUrl';
 import Response from './Response';
-import timespan from 'utils/timespan';
+import timespan from './timespan';
 
 class Post extends React.Component {
     constructor(props) {

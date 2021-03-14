@@ -2,7 +2,7 @@ import React from 'react';
 
 import css from './Home.module.css';
 import Post from './Post';
-import publicUrl from 'utils/publicUrl';
+import publicUrl from './publicUrl';
 
 function Home() {
     const post = {

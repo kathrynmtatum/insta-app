@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import css from './App.module.css';
+import Activity from './Activity';
+import Explore from './Explore';
+import Header from './Header';
+import Home from './Home';
+import Navbar from './Navbar';
+import NewPost from './NewPost';
+import Profile from './Profile';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 'home'
+    };
+    this.setPage = this.setPage.bind(this);
+  }
+
+  renderMain(page) {
+    switch (page) {
+      case 'home': return <Home/>;
+      case 'explore': return <Explore/>;
+      case 'newpost': return <NewPost/>;
+      case 'activity': return <Activity/>;
+      case 'profile': return <Profile/>;
+      default: return <Home/>;
+    }
+  }
+
+  setPage(page) {
+    this.setState({
+      page: page
+    });
+  }
+
+  render() {
+    return (
+      <div className={css.container}>
+          <Header/>
+          <main className={css.content}>
+              {this.renderMain(this.state.page)}
+          </main>
+          <Navbar onNavChange={this.setPage}/>
+      </div>
+    );
+  }
 }
 
 export default App;

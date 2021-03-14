@@ -1,7 +1,7 @@
 import React from 'react';
 
 import css from './Navbar.module.css';
-import publicUrl from 'utils/publicUrl';
+import publicUrl from './publicUrl';
 
 function Navbar(props) {
     function handleNavChange(page) {
