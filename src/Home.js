@@ -1,46 +1,26 @@
 import React from 'react';
 
-import css from './Home.module.css';
-import Post from './Post';
-import publicUrl from './publicUrl';
+import { findComments, findLikes, findUser } from 'utils/find';
 
-function Home() {
-    const post = {
-        user:{
-            id: "judy",
-            photo: "/assets/user1.png",
-        },
-        post:{
-            id: "post-1",
-            userId: "judy",
-            photo: "/assets/post1.png",
-            desc: "#zootopia #excited",
-            datetime: "2020-02-09T22:45:28Z"
-        },
-        likes: {
-            self: true,
-            count: 1
-        },
-        comments:[
-            {
-                userId: "nick",
-                text: "Welcome to Zootopia!"
-            },
-            {
-                userId: "judy",
-                text: "Thanks!😁Looking forward to meeting you!"
-            }
-        ]
-    };
+import Post from './Post';
+
+function Home(props) {
+    const {store} = props;
 
     return (
         <div>
-            <Post
-                user={post.user}
-                likes={post.likes}
-                post={post.post}
-                comments={post.comments}
-            />
+            {store.posts.sort((a, b) => new Date(b.datetime) - new Date(a.datetime)).map(post => (
+                <Post
+                    key={post.id}
+                    user={findUser(post.userId, store)}
+                    likes={findLikes(post, store)}
+                    post={post}
+                    comments={findComments(post, store)}
+                    onLike={props.onLike} 
+                    onUnlike={props.onUnlike}
+                    onComment={props.onComment}
+                />
+            ))}
         </div>
     );
 }
