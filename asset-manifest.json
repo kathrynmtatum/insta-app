@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/insta-app/static/css/main.b418e28a.chunk.css",
-    "main.js": "/insta-app/static/js/main.eafb75cc.chunk.js",
-    "main.js.map": "/insta-app/static/js/main.eafb75cc.chunk.js.map",
-    "runtime-main.js": "/insta-app/static/js/runtime-main.e1299d9c.js",
-    "runtime-main.js.map": "/insta-app/static/js/runtime-main.e1299d9c.js.map",
-    "static/js/2.fee641a3.chunk.js": "/insta-app/static/js/2.fee641a3.chunk.js",
-    "static/js/2.fee641a3.chunk.js.map": "/insta-app/static/js/2.fee641a3.chunk.js.map",
-    "static/js/3.17919509.chunk.js": "/insta-app/static/js/3.17919509.chunk.js",
-    "static/js/3.17919509.chunk.js.map": "/insta-app/static/js/3.17919509.chunk.js.map",
+    "main.css": "/insta-app/static/css/main.1865dd41.chunk.css",
+    "main.js": "/insta-app/static/js/main.d9208d2e.chunk.js",
+    "main.js.map": "/insta-app/static/js/main.d9208d2e.chunk.js.map",
+    "runtime-main.js": "/insta-app/static/js/runtime-main.cba90914.js",
+    "runtime-main.js.map": "/insta-app/static/js/runtime-main.cba90914.js.map",
+    "static/js/2.a503ae82.chunk.js": "/insta-app/static/js/2.a503ae82.chunk.js",
+    "static/js/2.a503ae82.chunk.js.map": "/insta-app/static/js/2.a503ae82.chunk.js.map",
+    "static/js/3.7a531340.chunk.js": "/insta-app/static/js/3.7a531340.chunk.js",
+    "static/js/3.7a531340.chunk.js.map": "/insta-app/static/js/3.7a531340.chunk.js.map",
     "index.html": "/insta-app/index.html",
-    "static/css/main.b418e28a.chunk.css.map": "/insta-app/static/css/main.b418e28a.chunk.css.map",
-    "static/js/2.fee641a3.chunk.js.LICENSE.txt": "/insta-app/static/js/2.fee641a3.chunk.js.LICENSE.txt"
+    "static/css/main.1865dd41.chunk.css.map": "/insta-app/static/css/main.1865dd41.chunk.css.map",
+    "static/js/2.a503ae82.chunk.js.LICENSE.txt": "/insta-app/static/js/2.a503ae82.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e1299d9c.js",
-    "static/js/2.fee641a3.chunk.js",
-    "static/css/main.b418e28a.chunk.css",
-    "static/js/main.eafb75cc.chunk.js"
+    "static/js/runtime-main.cba90914.js",
+    "static/js/2.a503ae82.chunk.js",
+    "static/css/main.1865dd41.chunk.css",
+    "static/js/main.d9208d2e.chunk.js"
   ]
 }
