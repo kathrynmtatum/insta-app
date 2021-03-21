@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { findComments, findLikes, findUser } from 'utils/find';
+import { findComments, findLikes, findUser } from './find';
 
 import Post from './Post';
 

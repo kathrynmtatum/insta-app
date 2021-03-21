@@ -1,0 +1,48 @@
+.bold {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2%;
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    font-size: 120%;
+}
+
+.profileTitle {
+    font-weight: normal;
+}
+
+.profilePhoto {
+    border-radius: 50%;
+    width: 12%;
+    margin: 2%;
+}
+
+.profileBio {
+    margin: 1%;
+    margin-bottom: 2%;
+}
+
+hr {
+    background-color: #d6d6d6;
+    height: 1px;
+    width: 98%;
+    border: none;
+}
+
+.profileStats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.profilePosts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}

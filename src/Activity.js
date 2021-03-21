@@ -1,8 +1,5 @@
 import React from 'react';
 
-import css from './Activity.module.css';
-import publicUrl from './publicUrl';
-
 function Activity() {
     return (
         <div>

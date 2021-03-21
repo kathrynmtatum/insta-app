@@ -1,0 +1,12 @@
+.stat {
+    text-align: center;
+}
+
+.statNum {
+    font-weight: bold;
+    display: block;
+}
+
+.statLabel {
+    color: #969696;
+}
