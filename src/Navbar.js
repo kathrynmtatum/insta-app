@@ -1,41 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import css from './Navbar.module.css';
 import publicUrl from './publicUrl';
 
-function Navbar(props) {
-    function handleNavChange(page) {
-        if (props.onNavChange) {
-            props.onNavChange(page);
-        }
-    }
-
+function Navbar() {
     return (
         <nav className={css.navbar}>
             <div className={css.navItem}>
-                <button onClick={e=>handleNavChange('home')}>
+                <Link to="/">
                     <img src={publicUrl('/assets/home.svg')} alt="Home"/>
-                </button>
+                </Link>
             </div>
             <div className={css.navItem}>
-                <button onClick={e=>handleNavChange('explore')}>
+                <Link to="/explore">
                     <img src={publicUrl('/assets/explore.svg')} alt="Explore"/>
-                </button>
+                </Link>
             </div>
 			<div className={css.navItem}>
-                <button onClick={e=>handleNavChange('newpost')}>
+                <Link to="/newpost">
                     <img src={publicUrl('/assets/newpost.svg')} alt="New Post"/>
-                </button>
+                </Link>
             </div>
             <div className={css.navItem}>
-                <button onClick={e=>handleNavChange('activity')}>
+                <Link to="/activity">
                     <img src={publicUrl('/assets/like.svg')} alt="Activity"/>
-                </button>
+                </Link>
             </div>
             <div className={css.navItem}>
-                <button onClick={e=>handleNavChange('profile')}>
+                <Link to="/profile">
                     <img src={publicUrl('/assets/profile.svg')} alt="Profile"/>
-                </button>
+                </Link>
             </div>
         </nav>
     );

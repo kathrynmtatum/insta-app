@@ -16,7 +16,6 @@ const initialStore = {
             name:"Nick Wilde",
             bio:"Nick is a charming, small-time, con artist fox with a big mouth and a lot of opinions. But when a rabbit cop outsmarts him, he finds himself actually helping her solve a mystery."
         },
-
         {
             id:"flash",
             email:"flash@bc.edu",
@@ -130,4 +129,3 @@ const initialStore = {
 }
 
 export default initialStore;
-

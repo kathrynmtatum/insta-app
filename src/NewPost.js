@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import css from './NewPost.module.css';
 import FileLoader from './FileLoader';
@@ -8,6 +9,7 @@ function NewPost(props) {
     const [desc, setDesc] = useState('');
     const [photo, setPhoto] = useState(null);
     const [error, setError] = useState('');
+    const history = useHistory();
 
     function handleFileDragEnter(e) {
         setDragging(true);
@@ -45,14 +47,11 @@ function NewPost(props) {
         try {
             props.addPost(photo, desc);
             setError('');
+            history.push('/');
         } catch(err) {
             setError(err.message);
         }
         e.preventDefault();
-    }
-
-    function handleCancel() {
-        props.cancelPost();
     }
 
     return (
@@ -78,7 +77,7 @@ function NewPost(props) {
                 {error}
             </div>
             <div className={css.actions}>
-                <button onClick={handleCancel}>Cancel</button>
+                <button onClick={e => history.push('/')}>Cancel</button>
                 <button onClick={handleSubmit}>Share</button>      
             </div>
         </div>

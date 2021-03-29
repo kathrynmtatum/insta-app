@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import css from './App.module.css';
 import { findFollowers, findFollowing, findPosts, findUser } from './find';
@@ -14,7 +15,6 @@ import NewPost from './NewPost';
 import Profile from './Profile';
 
 function App() {
-  const [page, setPage] = useState('home');
   const [store, setStore] = useState(initialStore);
 
   function addComment(postId, text) {
@@ -31,7 +31,21 @@ function App() {
     });
   }
 
+  function addFollower(userId) {
+    const newFollower = {
+      userId,
+      followerId: store.currentUserId
+    }
+    setStore({
+      ...store,
+      followers: store.followers.concat(newFollower)
+    });
+  }
+
   function addPost(photo, desc) {
+    if (!photo) {
+      throw new TypeError('Photo required');
+    }
     const newPost = {
       id: uniqueId('post'),
       userId: store.currentUserId,
@@ -43,7 +57,6 @@ function App() {
       ...store,
       posts: store.posts.concat(newPost)
     });
-		setPage('home');
   }
 
   function addLike(postId) {
@@ -59,9 +72,12 @@ function App() {
     });
   }
 
-  function cancelPost() {
-		setPage('home');
-	}	
+  function removeFollower(userId) {
+    setStore({
+      ...store,
+      followers: store.followers.filter(follower => !(follower.followerId === store.currentUserId && follower.userId === userId))
+    });
+  }
 
   function removeLike(postId) {
     setStore({
@@ -70,38 +86,44 @@ function App() {
     });
   }
 
-  function renderMain(page) {
-    switch (page) {
-      case 'explore': return <Explore/>;
-      case 'newpost': return <NewPost
-        store={store}
-        addPost={addPost}
-        cancelPost={cancelPost}
-      />;
-      case 'activity': return <Activity/>;
-      case 'profile': return <Profile
-        user={findUser(store.currentUserId, store)}
-        followers={findFollowers(store.currentUserId, store)}
-        following={findFollowing(store.currentUserId, store)}
-        posts={findPosts(store.currentUserId, store)}
-      />;
-      default: return <Home
-        store={store}
-        onLike={addLike} 
-        onUnlike={removeLike}
-        onComment={addComment}
-      />;
-    }
-  }
-
   return (
-    <div className={css.container}>
-      <Header/>
-      <main className={css.content}>
-        {renderMain(page)}
-      </main>
-      <Navbar onNavChange={setPage}/>
-    </div>
+    <Router basename={process.env.PUBLIC_URL}>
+      <div className={css.container}>
+        <Header/>
+        <main className={css.content}>
+          <Switch>
+            <Route path="/explore">
+              <Explore/>
+            </Route>
+            <Route path="/newpost">
+              <NewPost
+                store={store}
+                addPost={addPost}
+              />
+            </Route>
+            <Route path="/activity">
+              <Activity/>
+            </Route>
+            <Route path="/profile/:userId?">
+              <Profile
+                store={store}
+                onFollow={addFollower}
+                onUnfollow={removeFollower}
+              />
+            </Route>
+            <Route path="/:postId?">
+              <Home
+                store={store}
+                onLike={addLike} 
+                onUnlike={removeLike}
+                onComment={addComment}
+              />
+            </Route>
+          </Switch>
+        </main>
+        <Navbar/>
+      </div>
+    </Router>
   );
 }
 

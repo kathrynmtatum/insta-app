@@ -10,14 +10,43 @@
     font-size: 120%;
 }
 
-.profileTitle {
-    font-weight: normal;
-}
-
 .profilePhoto {
     border-radius: 50%;
     width: 12%;
     margin: 2%;
+}
+
+.titleAndButton {
+    margin-left: 1%;
+}
+
+.profileTitle {
+    font-weight: normal;
+}
+
+.buttonContainer {
+    margin-top: 15%;
+}
+
+.button {
+    font-weight: bold;
+    font-size: 70%;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.followButton {
+    color: white;
+    background-color: #5facfa;
+}
+
+.unfollowButton {
+    background-color: white;
+    border: solid #c4c4c4 1px;
 }
 
 .profileBio {

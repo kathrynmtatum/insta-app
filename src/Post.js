@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import css from './Post.module.css';
 import publicUrl from './publicUrl';
@@ -29,7 +30,9 @@ function Post(props) {
         <section className={css.post}>
             <div className={css.postHeader}>
                 <img className={css.profilePhoto} src={publicUrl(props.user.photo)} alt={props.user.id}/>
-                <span className={css.bold}>{props.user.id}</span>
+                <Link to={`/profile/${props.user.id}`}>
+                    <span className={css.bold}>{props.user.id}</span>
+                </Link>
             </div>
             <img className={css.postPhoto} src={publicUrl(props.post.photo)} alt={props.post.desc}/>
             <div>
@@ -43,10 +46,15 @@ function Post(props) {
                 <span className={`${css.bold} ${css.postItem}`}>{props.likes.count} likes</span>
             </div>
             <div className={css.postItem}>
+            <Link to={`/profile/${props.user.id}`}>
                 <Response username={props.user.id} text={props.post.desc}/>
-                {props.comments.map((c, i) => (
-                    <Response key={i} username={c.userId} text={c.text}/>
+            </Link>
+                 {props.comments.map((c, i) => (
+                    <Link to={`/profile/${c.userId}`}>
+                        <Response username={c.userId} text={c.text}/>
+                    </Link>
                 ))}
+                
             </div>
             <span className={`${css.postItem} ${css.postTimestamp}`}>{timespan(props.post.datetime)}</span>
             {toggleComment &&
